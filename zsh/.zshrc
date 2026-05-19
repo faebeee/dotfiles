@@ -11,7 +11,6 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
-
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="hyperzsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -19,13 +18,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Setup ZSH
+
 # End of Docker CLI completions
 export PATH="$HOME/.local/bin:$PATH"
+
+# Setup PNPM
+export PATH="$HOME/.local/share/pnpm:$PATH"
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
@@ -33,3 +36,11 @@ export PATH="$HOME/.opencode/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

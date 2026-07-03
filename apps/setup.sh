@@ -35,4 +35,9 @@ if ! [ -x "$(command -v obsidian)" ]; then
   flatpak install obsidian
 fi
 
+if ! [ -x "$(command -v nordvpn)" ]; then
+  echo "nordvpn not found. Start install..."
+  sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh) -p nordvpn-gui
+fi
+
 ./remove-unused.sh

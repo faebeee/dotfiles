@@ -30,4 +30,9 @@ if ! [ -x "$(command -v opencode)" ]; then
   curl -fsSL https://opencode.ai/install | bash
 fi
 
+if ! [ -x "$(command -v obsidian)" ]; then
+  echo "obsidian not found. Start install..."
+  flatpak install obsidian
+fi
+
 ./remove-unused.sh

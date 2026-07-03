@@ -1,0 +1,9 @@
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      --ts_ls = { enabled = false },
+      copilot = { enabled = true },
+    },
+  },
+}

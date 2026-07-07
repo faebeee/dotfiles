@@ -1,0 +1,221 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+#########################################
+#  KANAGAWA WAVE – Muted Elegance Theme #
+#########################################
+# Inspired by Kanagawa & Catppuccin
+# Soft, earthy tones with subtle accents
+
+# Base colors (Kanagawa-inspired)
+BG_BASE="0x1f1f28"    # Deep background
+BG_SURFACE="0x2a2a37" # Surface layer
+BG_OVERLAY="0x363646" # Overlay/highlight
+
+# Muted accent colors
+WAVE_BLUE="0x7e9cd8"     # Soft wave blue
+SPRING_VIOLET="0x957fb8" # Gentle violet
+AUTUMN_RED="0xc34043"    # Muted red
+WAVE_AQUA="0x7fb4ca"     # Calm aqua
+SPRING_GREEN="0x98bb6c"  # Soft green
+AUTUMN_YELLOW="0xdca561" # Warm yellow
+SAKURA_PINK="0xd27e99"   # Gentle pink
+OLD_WHITE="0xdcd7ba"     # Aged white
+
+# Text colors
+FG_PRIMARY="0xdcd7ba"   # Main text
+FG_SECONDARY="0xc8c093" # Secondary text
+FG_DIM="0x727169"       # Dimmed text
+
+##############################
+#  Bar – Transparent         #
+##############################
+
+sketchybar --bar position=top \
+  height=40 \
+  color=0x00000000 \
+  shadow=on \
+  sticky=on \
+  padding_left=10 \
+  padding_right=10 \
+  corner_radius=0 \
+  border_width=0 \
+  blur_radius=0 \
+  y_offset=2
+
+################################
+#  Global defaults             #
+################################
+
+MODULE_BG_ALPHA="d0"     # More opaque for visibility
+MODULE_BORDER_ALPHA="40" # Subtle borders
+
+default=(
+  padding_left=16
+  padding_right=16
+
+  icon.font="Symbols Nerd Font:Regular:16.0"
+  label.font="JetBrainsMono Nerd Font:Medium:13.0"
+
+  icon.font.size=16.0
+  label.font.size=13.0
+
+  icon.color=0xff${WAVE_BLUE:2}
+  label.color=0xff${FG_PRIMARY:2}
+
+  icon.padding_left=8
+  icon.padding_right=8
+  label.padding_left=8
+  label.padding_right=8
+
+  background.color=0x${MODULE_BG_ALPHA}${BG_SURFACE:2}
+  background.corner_radius=0
+  background.height=28
+  background.border_width=0
+  background.border_color=0x${MODULE_BORDER_ALPHA}${WAVE_BLUE:2}
+  background.shadow.drawing=on
+)
+
+sketchybar --default "${default[@]}"
+
+################################
+#  Blur Brackets               #
+################################
+
+################################
+#  LEFT: Portal + Spaces       #
+################################
+
+############################
+#  Workspaces              #
+############################
+
+################################
+#  LEFT: Apps & Controls       #
+################################
+
+sketchybar --add item launcher left \
+  --set launcher icon=󰚌 \
+  icon.font.size=24.0 \
+  icon.color=0xff${AUTUMN_YELLOW:2} \
+  label.drawing=off
+
+sketchybar --add item front_app left \
+  --set front_app icon.drawing=off \
+  label.color=0xff${FG_PRIMARY:2} \
+  label.font="Hack Nerd Font:Regular:13.0" \
+  label.padding_left=12 \
+  label.padding_right=12 \
+  script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
+
+################################
+#  RIGHT: System Monitors      #
+################################
+
+sketchybar --add item time right \
+  --set time update_freq=10 \
+  --set time icon= \
+  script="$PLUGIN_DIR/clock.sh" \
+  label.color=0xff${FG_PRIMARY:2} \
+  label.font="Hack Nerd Font:Regular:13.0" \
+  label.padding_left=8 \
+  label.padding_right=8
+
+sketchybar --add item bluetooth right \
+  --add event bluetooth_status "com.apple.bluetooth.status" \
+  --set bluetooth icon=󰤨 \
+  icon.font.size=16.0 \
+  icon.color=0xff${WAVE_BLUE:2} \
+  label.color=0xff${FG_SECONDARY:2} \
+  background.padding_left=8 \
+  background.padding_right=0 \
+  label.drawing=off \
+  update_freq=30 \
+  script="$PLUGIN_DIR/bluetooth.sh" \
+  --subscribe bluetooth bluetooth_status
+
+sketchybar --add item wifi right \
+  --set wifi icon=󰤨 \
+  icon.font.size=16.0 \
+  icon.color=0xff${WAVE_BLUE:2} \
+  label.color=0xff${FG_SECONDARY:2} \
+  background.padding_left=8 \
+  background.padding_right=0 \
+  update_freq=30 \
+  script="$PLUGIN_DIR/wifi.sh" \
+  --subscribe wifi wifi_change
+
+sketchybar --add item battery right \
+  --set battery icon=󰁹 \
+  icon.font.size=16.0 \
+  icon.color=0xff${SPRING_GREEN:2} \
+  label.color=0xff${FG_SECONDARY:2} \
+  background.padding_left=8 \
+  background.padding_right=0 \
+  update_freq=60 \
+  script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+sketchybar --add item volume right \
+  --set volume icon=󰕾 \
+  icon.font.size=16.0 \
+  icon.color=0xff${SAKURA_PINK:2} \
+  label.color=0xff${FG_SECONDARY:2} \
+  background.padding_left=8 \
+  background.padding_right=0 \
+  script="$PLUGIN_DIR/volume.sh" \
+  --subscribe volume volume_change
+
+#######################################
+#  Spotify Player                     #
+#######################################
+
+SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
+POPUP_SCRIPT="sketchybar -m --set \$NAME popup.drawing=toggle"
+
+sketchybar --add event spotify_change $SPOTIFY_EVENT \
+  --add item spotify.name right \
+  --set spotify.name icon=󰓇 \
+  icon.font.size=17.0 \
+  label="Not Playing" \
+  label.color=0xff${FG_PRIMARY:2} \
+  label.font="Hack Nerd Font:Regular:13.0" \
+  icon.color=0xff${SPRING_VIOLET:2} \
+  padding_left=8 \
+  padding_right=0 \
+  click_script="$POPUP_SCRIPT" \
+  popup.horizontal=on \
+  popup.align=center \
+  popup.background.color=0xf0${BG_SURFACE:2} \
+  popup.background.border_color=0x60${SPRING_VIOLET:2} \
+  popup.background.shadow.drawing=off
+
+controls=("back:󰒮:${WAVE_AQUA:2}" "play:󰐊:${SPRING_GREEN:2}" "next:󰒭:${WAVE_AQUA:2}" "shuffle:󰒝:${SPRING_VIOLET:2}" "repeat:󰑖:${AUTUMN_YELLOW:2}")
+
+for ctrl in "${controls[@]}"; do
+  IFS=':' read -r name icon color <<<"$ctrl"
+
+  sketchybar --add item "spotify.$name" popup.spotify.name \
+    --set "spotify.$name" icon="$icon" \
+    icon.font.size=17.0 \
+    icon.color=0xff$color \
+    icon.highlight_color=0xff${SPRING_GREEN:2} \
+    background.color=0x50${BG_OVERLAY:2} \
+    background.corner_radius=8 \
+    background.border_width=1 \
+    background.border_color=0x30$color \
+    background.shadow.drawing=off \
+    label.drawing=off \
+    updates=on \
+    script="$PLUGIN_DIR/spotify.sh" \
+    --subscribe "spotify.$name" mouse.clicked spotify_change
+done
+
+#################
+#  Final launch #
+#################
+
+sketchybar --update

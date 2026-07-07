@@ -12,3 +12,5 @@ echo "####################"
 
 installApp fzf
 installApp lsd
+installApp zsh-autosuggestions
+installApp zsh-syntax-highlighting

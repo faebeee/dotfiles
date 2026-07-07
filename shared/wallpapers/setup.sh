@@ -1,1 +1,1 @@
-ln -sf "$(pwd -P)/wallpapers" $HOME/Pictures/wallpapers
+cp -r "$(pwd -P)/wallpapers" $HOME/Pictures/wallpapers

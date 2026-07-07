@@ -13,6 +13,8 @@ echo "####################"
 installApp chromium-browser
 installApp snap
 installApp fzf
+installApp lsd
+installApp discord
 
 if ! [ -x "$(command -v lazygit)" ]; then
   echo "lazygit not found. Start install..."

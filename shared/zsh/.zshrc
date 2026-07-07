@@ -6,6 +6,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
+antigen bundle zsh-users/zsh-autosuggestions
 
 ZSH_THEME="agnoster"
 

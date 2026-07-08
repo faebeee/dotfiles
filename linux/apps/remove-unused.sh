@@ -23,3 +23,7 @@ removeIfAvailable korganizer
 removeIfAvailable kpat
 removeIfAvailable libreoffice
 removeIfAvailable mpv
+removeIfAvailable kaddressbook
+removeIfAvailable neochat
+removeIfAvailable nvtop
+removeIfAvailable okular

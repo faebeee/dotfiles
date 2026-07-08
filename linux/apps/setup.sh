@@ -15,6 +15,7 @@ installApp snap
 installApp fzf
 installApp lsd
 installApp discord
+installApp nautilus
 
 if ! [ -x "$(command -v lazygit)" ]; then
   echo "lazygit not found. Start install..."

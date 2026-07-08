@@ -6,11 +6,11 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
-antigen bundle zsh-users/zsh-autosuggestions
 
 ZSH_THEME="agnoster"
 
 plugins=( 
+    ssh-agent
     git
     dnf
     zsh-autosuggestions
@@ -18,10 +18,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# check the dnf plugins commands here
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dnf
-
 
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
@@ -45,4 +41,10 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads
 
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH

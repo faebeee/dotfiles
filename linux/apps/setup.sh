@@ -52,6 +52,7 @@ fi
 
 if ! [ -x "$(command -v pika)" ]; then
   echo "pika not found. Start install..."
+  flatpak remote-add --if-not-exists flathub https://flathub.org
   flatpak install org.gnome.World.PikaBackup
 fi
 

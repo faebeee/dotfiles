@@ -15,9 +15,12 @@ installApp snap
 installApp fzf
 installApp nvim
 installApp lsd
+installApp zsh
 installApp discord
 installApp nautilus
 installApp virt-manager
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if ! [ -x "$(command -v lazygit)" ]; then
   echo "lazygit not found. Start install..."

@@ -1,19 +1,19 @@
 -- DMS user keybind overrides (edit via Control Center or dms; do not remove this header)
 
+hl.unbind("SUPER + SHIFT + Tab")
+hl.bind("SUPER + SHIFT + Tab", hl.dsp.workspace.move({ monitor = "+1" }), { description = "Move Workspace to Monitor" })
 hl.unbind("SUPER + Return")
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"), { description = "ghostty" })
-hl.unbind("SUPER + T")
-
-hl.unbind("SUPER + G")
-hl.bind(
-	"SUPER + G",
-	hl.dsp.exec_cmd("exec chromium-browser --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm"),
-	{ description = "gmail" }
-)
-
-hl.unbind("SUPER + M")
-hl.bind("SUPER + M", hl.dsp.exec_cmd("spotify"), { description = "Spotify" })
-
 hl.unbind("SUPER + SHIFT + B")
-
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("chromium-browser"), { description = "Chromium" })
+hl.unbind("SUPER + SHIFT + F")
+hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("nautilus"), { description = "Nautilus" })
+hl.unbind("SUPER + SHIFT + I")
+hl.bind("SUPER + SHIFT + I", hl.dsp.exec_cmd("ghostty -e btop"), { description = "BTOP" })
+hl.unbind("SUPER + SHIFT + M")
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("spotify"), { description = "Spotify" })
+hl.unbind("CTRL + ALT + Delete")
+hl.unbind("SUPER + M")
+hl.bind("SUPER + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }), { description = "Toggle Fullscreen" })
+hl.unbind("SUPER + T")
+hl.unbind("SUPER + W")

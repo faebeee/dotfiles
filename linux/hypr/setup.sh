@@ -1,13 +1,7 @@
-if [ -d $HOME/.config/hypr ]; then
-  echo "REMOVE OLD HYPERLAND CONFIG"
-  cp -r $HOME/.config/hypr $HOME/.config/hypr.bkp
-  rm -rf $HOME/.config/hypr
-fi
+rm $HOME/.config/hypr/dms/binds-user.lua
+ln -sf "$(pwd -P)/dms/binds-user.lua" $HOME/.config/hypr/dms/binds-user.lua
 
-mkdir $HOME/.config/hypr
-mkdir $HOME/.config/hypr/dms
+rm $HOME/.config/hypr/hyprland.lua
+ln -sf "$(pwd -P)/hyprland.lua" $HOME/.config/hypr/hyprland.lua
 
-cp "$(pwd -P)/dms/binds.conf" $HOME/.config/hypr/dms/binds.conf
-cp "$(pwd -P)/dms/cursor.conf" $HOME/.config/hypr/dms/cursor.conf
-cp "$(pwd -P)/dms/layout.conf" $HOME/.config/hypr/dms/layout.conf
-cp "$(pwd -P)/hyprland.conf" $HOME/.config/hypr/hyprland.conf
+hyprctl reload

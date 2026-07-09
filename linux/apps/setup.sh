@@ -19,6 +19,7 @@ installApp zsh
 installApp discord
 installApp nautilus
 installApp virt-manager
+installApp ghostty
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

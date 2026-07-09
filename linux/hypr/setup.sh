@@ -1,11 +1,13 @@
-rm -rf $HOME/.config/hypr/dms/binds.conf
-ln -sf "$(pwd -P)/dms/binds.conf" $HOME/.config/hypr/dms/binds.conf
+if [ -d $HOME/.config/hypr ]; then
+  echo "REMOVE OLD HYPERLAND CONFIG"
+  cp -r $HOME/.config/hypr $HOME/.config/hypr.bkp
+  rm -rf $HOME/.config/hypr
+fi
 
-rm -rf $HOME/.config/hypr/dms/cursor.conf
-ln -sf "$(pwd -P)/dms/cursor.conf" $HOME/.config/hypr/dms/cursor.conf
+mkdir $HOME/.config/hypr
+mkdir $HOME/.config/hypr/dms
 
-rm -rf $HOME/.config/hypr/dms/layout.conf
-ln -sf "$(pwd -P)/dms/layout.conf" $HOME/.config/hypr/dms/layout.conf
-
-rm -rf $HOME/.config/hypr/hyprland.conf
-ln -sf "$(pwd -P)/hyprland.conf" $HOME/.config/hypr/hyprland.conf
+cp "$(pwd -P)/dms/binds.conf" $HOME/.config/hypr/dms/binds.conf
+cp "$(pwd -P)/dms/cursor.conf" $HOME/.config/hypr/dms/cursor.conf
+cp "$(pwd -P)/dms/layout.conf" $HOME/.config/hypr/dms/layout.conf
+cp "$(pwd -P)/hyprland.conf" $HOME/.config/hypr/hyprland.conf

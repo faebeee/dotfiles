@@ -16,6 +16,7 @@ installApp fzf
 installApp lsd
 installApp discord
 installApp nautilus
+installApp virt-manager
 
 if ! [ -x "$(command -v lazygit)" ]; then
   echo "lazygit not found. Start install..."
@@ -53,4 +54,7 @@ if ! [ -x "$(command -v pika)" ]; then
   flatpak install org.gnome.World.PikaBackup
 fi
 
-./remove-unused.sh
+if ! [ -x "$(command -v RustDesk)" ]; then
+  echo "RustDesk not found. Start install..."
+  flatpak install com.rustdesk.RustDesk
+fi

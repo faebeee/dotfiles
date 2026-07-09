@@ -13,6 +13,7 @@ echo "####################"
 installApp chromium-browser
 installApp snap
 installApp fzf
+installApp nvim
 installApp lsd
 installApp discord
 installApp nautilus

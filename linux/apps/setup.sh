@@ -63,3 +63,10 @@ if ! [ -x "$(command -v RustDesk)" ]; then
   echo "RustDesk not found. Start install..."
   flatpak install com.rustdesk.RustDesk
 fi
+
+if ! [ -x "$(command -v gh)" ]; then
+  echo "gh cli not found. Start install..."
+  sudo dnf install 'dnf-command(config-manager)'
+  sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+  sudo dnf install ghf
+fi

@@ -363,24 +363,24 @@
   "acLockTimeout": 0,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
-  "acProfileName": "",
+  "acProfileName": "1",
   "acPostLockMonitorTimeout": 0,
   "batteryMonitorTimeout": 0,
   "batteryLockTimeout": 0,
   "batterySuspendTimeout": 0,
   "batterySuspendBehavior": 0,
-  "batteryProfileName": "",
+  "batteryProfileName": "0",
   "batteryPostLockMonitorTimeout": 0,
   "batteryChargeLimit": 100,
   "batteryNotifyChargeLimit": false,
   "batteryCriticalThreshold": 10,
   "batteryNotifyCritical": true,
   "batteryLowThreshold": 20,
-  "batteryNotifyLow": false,
+  "batteryNotifyLow": true,
   "batteryChargeLimitNotificationType": 0,
-  "batteryLowNotificationType": 0,
+  "batteryLowNotificationType": 1,
   "batteryCriticalNotificationType": 1,
-  "batteryAutoPowerSaver": false,
+  "batteryAutoPowerSaver": true,
   "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
@@ -557,7 +557,7 @@
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
     "eDP-1": {
-      "disabled": false
+      "disabled": true
     },
     "DP-1": {},
     "DP-3": {},
@@ -567,7 +567,7 @@
   },
   "displayProfiles": {},
   "activeDisplayProfile": {
-    "hyprland": "profile_1783522484654_9xsgup"
+    "hyprland": "profile_1783520876343_2qv9ew"
   },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
@@ -642,6 +642,10 @@
         }
       ],
       "rightWidgets": [
+        {
+          "id": "displayProfileManager",
+          "enabled": true
+        },
         {
           "id": "keyboard_layout_name",
           "enabled": true

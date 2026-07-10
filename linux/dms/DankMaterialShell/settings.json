@@ -558,16 +558,13 @@
   "hyprlandOutputSettings": {
     "eDP-1": {},
     "DP-1": {},
-    "DP-3": {},
-    "desc:Samsung Display Corp. 0x41A0 Unknown": {
-      "disabled": false
-    }
+    "DP-3": {}
   },
   "displayProfiles": {},
   "activeDisplayProfile": {
-    "hyprland": "auto_5af6115"
+    "hyprland": "profile_1783522484654_9xsgup"
   },
-  "displayProfileAutoSelect": true,
+  "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
   "connectedFrameBarStyleBackups": {},

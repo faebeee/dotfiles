@@ -17,7 +17,7 @@
   "widgetColorMode": "colorful",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
-  "cornerRadius": 0,
+  "cornerRadius": 12,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -58,7 +58,7 @@
   "m3ElevationCustomColor": "#000000",
   "modalElevationEnabled": true,
   "popoutElevationEnabled": true,
-  "barElevationEnabled": true,
+  "barElevationEnabled": false,
   "blurEnabled": false,
   "blurForegroundLayers": true,
   "blurLayerOutlineOpacity": 0.12,
@@ -540,7 +540,7 @@
   "customPowerActionReboot": "",
   "customPowerActionPowerOff": "",
   "updaterHideWidget": false,
-  "updaterCheckOnStart": true,
+  "updaterCheckOnStart": false,
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
@@ -549,7 +549,9 @@
   "updaterAllowAUR": true,
   "displayNameMode": "system",
   "screenPreferences": {
-    "wallpaper": []
+    "wallpaper": [
+      "all"
+    ]
   },
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
@@ -616,15 +618,15 @@
         {
           "id": "ipIndicator",
           "enabled": true
+        },
+        {
+          "id": "music",
+          "enabled": true
         }
       ],
       "rightWidgets": [
         {
           "id": "keyboard_layout_name",
-          "enabled": true
-        },
-        {
-          "id": "music",
           "enabled": true
         },
         {

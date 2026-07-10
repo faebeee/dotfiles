@@ -17,7 +17,7 @@
   "widgetColorMode": "colorful",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
-  "cornerRadius": 12,
+  "cornerRadius": 0,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -600,12 +600,6 @@
           "id": "memUsage",
           "enabled": true,
           "minimumWidth": true
-        },
-        {
-          "id": "gpuTemp",
-          "enabled": true,
-          "selectedGpuIndex": 0,
-          "pciId": "1002:7550"
         },
         {
           "id": "gpuMonitor",

@@ -556,9 +556,7 @@
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
-    "eDP-1": {
-      "disabled": true
-    },
+    "eDP-1": {},
     "DP-1": {},
     "DP-3": {},
     "desc:Samsung Display Corp. 0x41A0 Unknown": {
@@ -567,9 +565,9 @@
   },
   "displayProfiles": {},
   "activeDisplayProfile": {
-    "hyprland": "profile_1783520876343_2qv9ew"
+    "hyprland": "auto_5af6115"
   },
-  "displayProfileAutoSelect": false,
+  "displayProfileAutoSelect": true,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
   "connectedFrameBarStyleBackups": {},

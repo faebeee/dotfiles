@@ -812,7 +812,7 @@
   "frameScreenPreferences": [
     "all"
   ],
-  "frameBarSize": 40,
+  "frameBarSize": 32,
   "frameShowOnOverview": false,
   "frameBlurEnabled": true,
   "frameCloseGaps": true,
@@ -822,6 +822,6 @@
   "frameMode": "connected",
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
-  "frameBarInsetPadding": -1,
+  "frameBarInsetPadding": 8,
   "configVersion": 12
 }

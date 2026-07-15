@@ -13,8 +13,15 @@ echo "####################"
 installApp chromium-browser
 installApp snap
 installApp fzf
+installApp nvim
 installApp lsd
+installApp zsh
 installApp discord
+installApp nautilus
+installApp virt-manager
+installApp ghostty
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 if ! [ -x "$(command -v lazygit)" ]; then
   echo "lazygit not found. Start install..."
@@ -49,7 +56,18 @@ fi
 
 if ! [ -x "$(command -v pika)" ]; then
   echo "pika not found. Start install..."
+  flatpak remote-add --if-not-exists flathub https://flathub.org
   flatpak install org.gnome.World.PikaBackup
 fi
 
-./remove-unused.sh
+if ! [ -x "$(command -v RustDesk)" ]; then
+  echo "RustDesk not found. Start install..."
+  flatpak install com.rustdesk.RustDesk
+fi
+
+if ! [ -x "$(command -v gh)" ]; then
+  echo "gh cli not found. Start install..."
+  sudo dnf install 'dnf-command(config-manager)'
+  sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+  sudo dnf install ghf
+fi

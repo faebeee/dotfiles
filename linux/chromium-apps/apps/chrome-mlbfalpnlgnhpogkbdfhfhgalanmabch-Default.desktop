@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Figma
+Exec=/usr/lib64/chromium-browser/chromium-browser.sh --profile-directory=Default --app-id=mlbfalpnlgnhpogkbdfhfhgalanmabch
+Icon=chrome-mlbfalpnlgnhpogkbdfhfhgalanmabch-Default
+StartupWMClass=crx_mlbfalpnlgnhpogkbdfhfhgalanmabch

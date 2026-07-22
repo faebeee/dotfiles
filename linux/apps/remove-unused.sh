@@ -27,3 +27,7 @@ removeIfAvailable kaddressbook
 removeIfAvailable neochat
 removeIfAvailable nvtop
 removeIfAvailable okular
+removeIfAvailable gwenview
+removeIfAvailable kfind
+removeIfAvailable kmouth
+removeIfAvailable kmail

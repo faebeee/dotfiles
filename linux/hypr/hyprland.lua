@@ -11,7 +11,7 @@ end)
 
 hl.config({
 	input = {
-		kb_layout = "us,de",
+		kb_layout = "us,ch",
 		numlock_by_default = true,
 		follow_mouse = 0,
 		touchpad = {

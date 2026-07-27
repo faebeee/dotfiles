@@ -21,7 +21,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "base16-ashes",
+        colorscheme = "base16-nova",
       },
     },
     -- import/override with your plugins

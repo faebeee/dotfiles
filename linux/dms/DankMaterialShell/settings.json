@@ -59,7 +59,7 @@
   "modalElevationEnabled": true,
   "popoutElevationEnabled": true,
   "barElevationEnabled": false,
-  "blurEnabled": false,
+  "blurEnabled": true,
   "blurForegroundLayers": true,
   "blurLayerOutlineOpacity": 0.12,
   "blurBorderEnabled": true,
@@ -244,11 +244,11 @@
   "greeterAutoLogin": true,
   "greeterEnableFprint": false,
   "greeterEnableU2f": false,
-  "greeterWallpaperPath": "/home/fabs/Pictures/Wallpapers/Concept-Japanese house.png",
+  "greeterWallpaperPath": "/home/fabs/Pictures/Wallpapers/HOE6KyvbYAAyeYa.jpg",
   "greeterLockDateFormat": "",
   "greeterFontFamily": "JetBrainsMonoNL Nerd Font Mono",
   "greeterWallpaperFillMode": "",
-  "greeterPamExternallyManaged": false,
+  "greeterPamExternallyManaged": true,
   "greeterSyncPending": false,
   "greeterSyncBaseline": {},
   "mediaSize": 1,
@@ -389,15 +389,6 @@
   "fadeToDpmsEnabled": true,
   "fadeToDpmsGracePeriod": 5,
   "launchPrefix": "",
-  "brightnessDevicePins": {},
-  "wifiNetworkPins": {},
-  "bluetoothDevicePins": {
-    "preferredDevice": [
-      "AC:80:0A:F4:C0:5E"
-    ]
-  },
-  "audioInputDevicePins": {},
-  "audioOutputDevicePins": {},
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -480,10 +471,10 @@
   "lockScreenShowPowerActions": true,
   "lockScreenShowSystemIcons": true,
   "lockScreenShowTime": true,
-  "lockScreenShowDate": true,
-  "lockScreenShowProfileImage": true,
+  "lockScreenShowDate": false,
+  "lockScreenShowProfileImage": false,
   "lockScreenShowPasswordField": true,
-  "lockScreenShowMediaPlayer": true,
+  "lockScreenShowMediaPlayer": false,
   "lockScreenPowerOffMonitorsOnLock": false,
   "lockAtStartup": true,
   "enableFprint": false,
@@ -500,7 +491,7 @@
   "lockScreenVideoEnabled": false,
   "lockScreenVideoPath": "",
   "lockScreenVideoCycling": false,
-  "lockScreenWallpaperPath": "/home/fabs/Pictures/Wallpapers/Retro - Programmer.jpeg",
+  "lockScreenWallpaperPath": "/home/fabs/Pictures/Wallpapers/HOE6KyvbYAAyeYa.jpg",
   "lockScreenWallpaperFillMode": "",
   "lockScreenFontFamily": "",
   "hideBrightnessSlider": false,
@@ -609,28 +600,12 @@
           "minimumWidth": true
         },
         {
-          "id": "gpuMonitor",
-          "enabled": true
-        },
-        {
           "id": "diskUsage",
           "enabled": true,
           "mountPath": "/"
-        },
-        {
-          "id": "amdGpuMonitorRevive",
-          "enabled": true
-        },
-        {
-          "id": "amdGpuMonitor",
-          "enabled": true
         }
       ],
       "centerWidgets": [
-        {
-          "id": "dankKDEConnect",
-          "enabled": true
-        },
         {
           "id": "weather",
           "enabled": true
@@ -640,11 +615,12 @@
           "enabled": true
         },
         {
-          "id": "ipIndicator",
-          "enabled": true
+          "id": "music",
+          "enabled": true,
+          "mediaSize": 0
         },
         {
-          "id": "music",
+          "id": "dankKDEConnect",
           "enabled": true
         }
       ],
@@ -655,7 +631,8 @@
         },
         {
           "id": "keyboard_layout_name",
-          "enabled": true
+          "enabled": true,
+          "keyboardLayoutNameCompactMode": true
         },
         {
           "id": "systemTray",
@@ -824,16 +801,16 @@
   "frameScreenPreferences": [
     "all"
   ],
-  "frameBarSize": 32,
+  "frameBarSize": 24,
   "frameShowOnOverview": false,
   "frameBlurEnabled": true,
-  "frameCloseGaps": true,
+  "frameCloseGaps": false,
   "frameLauncherEmergeSide": "bottom",
-  "frameLauncherArcExtender": false,
-  "frameLauncherEdgeHover": false,
+  "frameLauncherArcExtender": true,
+  "frameLauncherEdgeHover": true,
   "frameMode": "connected",
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
-  "frameBarInsetPadding": 8,
-  "configVersion": 12
+  "frameBarInsetPadding": 21,
+  "configVersion": 13
 }

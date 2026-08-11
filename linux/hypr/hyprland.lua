@@ -13,7 +13,7 @@ hl.config({
 	input = {
 		kb_layout = "us,ch",
 		numlock_by_default = true,
-		follow_mouse = 0,
+		follow_mouse = 1,
 		touchpad = {
 			tap_to_click = true,
 			natural_scroll = true,
@@ -28,7 +28,7 @@ hl.config({
 	decoration = {
 		rounding = 0,
 		active_opacity = 1.0,
-		inactive_opacity = 1.0,
+		inactive_opacity = 0.5,
 		shadow = {
 			enabled = false,
 			range = 30,
@@ -45,7 +45,7 @@ hl.config({
 		preserve_split = true,
 	},
 	master = {
-		mfact = 0.5,
+		mfact = 0.7,
 	},
 })
 
@@ -55,7 +55,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 5, bezier = "default
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "default" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "default" })
-
 hl.window_rule({ match = { class = "^(gnome-control-center)$" }, tile = true })
 hl.window_rule({ match = { class = "^(pavucontrol)$" }, tile = true })
 hl.window_rule({ match = { class = "^(nm-connection-editor)$" }, tile = true })

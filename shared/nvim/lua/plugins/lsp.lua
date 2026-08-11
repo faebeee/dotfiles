@@ -6,7 +6,6 @@ return {
     },
     servers = {
       --ts_ls = { enabled = false },
-      copilot = { enabled = true },
     },
   },
 }

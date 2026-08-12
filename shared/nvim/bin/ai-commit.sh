@@ -2,8 +2,6 @@
 # Generates a single-line conventional commit message for staged changes via opencode.
 set -euo pipefail
 
-MODEL="${AI_COMMIT_MODEL:-opencode/nemotron-3-ultra-free}"
-
 diff_file="$(mktemp)"
 trap 'rm -f "$diff_file"' EXIT
 
@@ -13,9 +11,7 @@ if [[ ! -s "$diff_file" ]]; then
   exit 1
 fi
 
-opencode run \
-  "Write a conventional commit message (type: summary) for the staged git diff below. Use the imperative mood, no trailing period, max 72 characters, ONE line only. Output ONLY the message - no markdown, no code fences, no explanation, no surrounding quotes." \
-  --model "$MODEL" \
+opencode run /commit \
   -f "$diff_file" \
   2>/dev/null |
   sed -E 's/\x1B\[[0-9;]*[mK]//g' |

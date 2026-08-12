@@ -41,3 +41,30 @@ vim.keymap.set("i", "<C-a>", function()
 end)
 
 vim.keymap.set("v", "p", '"_dP')
+
+-- BOOKMARKS
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>mm",
+  "<cmd>BookmarksMark<cr>",
+  { desc = "Mark current line into active BookmarkList." }
+)
+vim.keymap.set({ "n", "v" }, "<leader>ml", "<cmd>BookmarksTree<cr>", { desc = "Open current bookmarks tree" })
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>mo",
+  "<cmd>BookmarksGoto<cr>",
+  { desc = "Go to bookmark at current active BookmarkList" }
+)
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>ma",
+  "<cmd>BookmarksCommands<cr>",
+  { desc = "Find and trigger a bookmark command." }
+)
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>md",
+  "<cmd>BookmarksDesc<cr>",
+  { desc = "Add description to bookmark under cursor." }
+)

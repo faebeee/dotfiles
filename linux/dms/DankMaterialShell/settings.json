@@ -557,19 +557,17 @@
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
-    "eDP-1": {
-      "disabled": true
-    },
+    "eDP-1": {},
     "DP-1": {},
     "DP-3": {}
   },
   "displayProfiles": {},
   "activeDisplayProfile": {
-    "hyprland": "profile_1783520876343_2qv9ew"
+    "hyprland": "profile_1783522484654_9xsgup"
   },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
-  "displaySnapToEdge": true,
+  "displaySnapToEdge": false,
   "connectedFrameBarStyleBackups": {},
   "barConfigs": [
     {

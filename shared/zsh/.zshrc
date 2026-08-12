@@ -48,3 +48,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
+
+#colorscript
+export PATH="/home/fabs/.local/bin:$PATH"

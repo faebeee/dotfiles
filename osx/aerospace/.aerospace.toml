@@ -22,7 +22,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 10
+accordion-padding = 8
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -58,12 +58,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 8 
-inner.vertical = 8 
-outer.left = 8
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 16
 outer.bottom = 8
-outer.top = [{monitor."built-in" = 8}, 48] 
-outer.right = 8
+outer.top = [{monitor."built-in" = 16}, 48]
+outer.right = 16
 
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
 [exec] # Again, you don't need to copy all config sections to your config.
@@ -121,38 +121,38 @@ alt-k = 'focus up'
 alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-cmd-shift-h = 'move left'
-cmd-shift-j = 'move down'
-cmd-shift-k = 'move up'
-cmd-shift-l = 'move right'
+cmd-shift-left = 'move left'
+cmd-shift-down = 'move down'
+cmd-shift-up = 'move up'
+cmd-shift-right = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 cmd-shift-minus = 'resize smart -50'
 cmd-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-f1 = 'workspace DEV1'
-f2 = 'workspace DEV2'
-f3 = 'workspace BROWSER'
-f4 = 'workspace MSG'
-f5 = 'workspace 5'
-f6 = 'workspace 6'
-f7 = 'workspace 7'
-f8 = 'workspace 8'
-f9 = 'workspace 9'
-f10 = 'workspace TRMNL'
+cmd-1 = 'workspace DEV1'
+cmd-2 = 'workspace DEV2'
+cmd-3 = 'workspace BROWSER'
+cmd-4 = 'workspace MSG'
+cmd-5 = 'workspace 5'
+cmd-6 = 'workspace 6'
+cmd-7 = 'workspace 7'
+cmd-8 = 'workspace 8'
+cmd-9 = 'workspace 9'
+cmd-0 = 'workspace TRMNL'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-ctrl-f1 = 'move-node-to-workspace DEV1'
-ctrl-f2 = 'move-node-to-workspace DEV2'
-ctrl-f3 = 'move-node-to-workspace BROWSER'
-ctrl-f4 = 'move-node-to-workspace MSG'
-ctrl-f5 = 'move-node-to-workspace 5'
-ctrl-f6 = 'move-node-to-workspace 6'
-ctrl-f7 = 'move-node-to-workspace 7'
-ctrl-f8 = 'move-node-to-workspace 8'
-ctrl-f9 = 'move-node-to-workspace 9'
-ctrl-f10 = 'move-node-to-workspace TRMNL'
+cmd-shift-1 = 'move-node-to-workspace DEV1'
+cmd-shift-2 = 'move-node-to-workspace DEV2'
+cmd-shift-3 = 'move-node-to-workspace BROWSER'
+cmd-shift-4 = 'move-node-to-workspace MSG'
+cmd-shift-5 = 'move-node-to-workspace 5'
+cmd-shift-6 = 'move-node-to-workspace 6'
+cmd-shift-7 = 'move-node-to-workspace 7'
+cmd-shift-8 = 'move-node-to-workspace 8'
+cmd-shift-9 = 'move-node-to-workspace 9'
+cmd-shift-0 = 'move-node-to-workspace TRMNL'
 
 #cmd-ctrl-1 = ['move-node-to-workspace DEV1', 'workspace DEV1']
 #cmd-ctrl-2 = ['move-node-to-workspace DEV2', 'workspace DEV2']
@@ -190,10 +190,10 @@ k = ['join-with up', 'mode main']
 l = ['join-with right', 'mode main']
 
 [mode.resize.binding]
-h = 'resize width -50'
-j = 'resize height +50'
-k = 'resize height -50'
-l = 'resize width +50'
+h = 'resize width -100'
+j = 'resize height +100'
+k = 'resize height -100'
+l = 'resize width +100'
 enter = 'mode main'
 esc = 'mode main'
 
@@ -206,3 +206,4 @@ esc = 'mode main'
 #exec-on-workspace-change = ['/bin/bash', '-c',
 #    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 #]
+

@@ -1,5 +1,5 @@
 mv "$HOME/.zshrc" "$HOME/.zshrc.bkp"
-cp "$(pwd -P)/.zshrc" "$HOME/.zshrc"
+ln -sf "$(pwd -P)/.zshrc" "$HOME/.zshrc"
 
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
   echo "################"

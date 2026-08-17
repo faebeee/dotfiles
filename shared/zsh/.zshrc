@@ -51,8 +51,3 @@ export PATH=$HOME/.opencode/bin:$PATH
 
 #colorscript
 export PATH="/home/fabs/.local/bin:$PATH"
-
-
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach-session -t default || tmux new-session -s default
-fi

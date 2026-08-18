@@ -12,3 +12,5 @@ vim.filetype.add({
     mdx = "mdx",
   },
 })
+
+vim.cmd.colorscheme("catppuccin-nvim")

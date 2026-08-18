@@ -1,6 +1,6 @@
 return {
   "farias-hecdin/CSSVarHighlight",
-  ft = "css",
+  ft = { "css", "scss" },
   dependencies = { "nvim-mini/mini.hipatterns" },
   config = true,
   -- If you want to configure some options, replace the previous line with:

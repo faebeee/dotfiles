@@ -7,7 +7,8 @@ sudo pacman -S ghostty \
   nvim \
   chromium-browser zen-browser-bin \
   podman \
-  podman-desktop
+  podman-desktop \
+  steam
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

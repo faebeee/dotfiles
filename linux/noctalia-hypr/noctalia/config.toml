@@ -35,7 +35,7 @@ sidebar_section = "full"
 
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-0000000000000003", "desktop-widget-0000000000000004" ]
+widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
 
     [desktop_widgets.grid]
     cell_size = 8
@@ -66,17 +66,6 @@ widget_order = [ "desktop-widget-0000000000000002", "desktop-widget-000000000000
     placement_width = 1920.0
     rotation = 0.0
     type = "media_player"
-
-    [desktop_widgets.widget.desktop-widget-0000000000000004]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 968.0
-    cy = 359.20001220703125
-    output = "eDP-1"
-    placement_height = 1200.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "weather"
 
 [lockscreen]
 blur_intensity = 1
@@ -252,9 +241,9 @@ capsule_fill = "secondary"
 color = "secondary"
 
 [widget.workspaces]
-active_pill_size = 0.80000000000000004
+active_pill_size = 0.4
 capsule = true
-capsule_fill = "secondary"
+capsule_fill = "primary"
 inactive_pill_size = 1.0
 pill_scale = 1
 show_labels = false

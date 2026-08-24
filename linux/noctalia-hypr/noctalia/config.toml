@@ -16,7 +16,7 @@ margin_edge = 8
 margin_ends = 8
 margin_opposite_edge = 8
 padding = 12
-radius = 0
+radius = 4
 radius_bottom_left = 0
 radius_bottom_right = 0
 radius_top_left = 0
@@ -220,7 +220,7 @@ color = "secondary"
 [widget.workspaces]
 active_pill_size = 0.8
 capsule = true
-capsule_fill = "on_primary"
+capsule_fill = "primary"
 inactive_pill_size = 1.0
 pill_scale = 1
 show_labels = false

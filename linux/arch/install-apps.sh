@@ -8,7 +8,9 @@ sudo pacman -S ghostty \
   chromium-browser zen-browser-bin \
   podman \
   podman-desktop \
-  steam
+  steam \
+  pika-backup \
+  spotify-launcher
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

@@ -2,6 +2,12 @@
 
 Config for [Hyprland](https://hypr.land) window manager and the [Noctalia](https://github.com/noctalia-dev/noctalia-shell) shell, on Linux.
 
+## Screenshots
+
+![Hyprland](./hypr/hypr.png)
+
+![Noctalia](./noctalia/noctalia.png)
+
 ## Highlights
 
 - `hypr/` is a Lua-based Hyprland config: entry point `hyprland.lua` + modules under `config/` for animations, autostart, colors, decorations, environment, inputs, misc, monitors, variables, windowrules, workspaces

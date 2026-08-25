@@ -10,8 +10,8 @@ THEME_DIR="$CONFIG_DIR/themes"
 # All colors, fonts and spacing live in themes/*.sh so a new look can be
 # applied by swapping the sourced file (or overriding $THEME).
 
-THEME="${THEME:-mono}"
-# shellcheck source=themes/mono.sh
+THEME="${THEME:-muted-grey}"
+# shellcheck source=themes/muted-grey.sh
 source "$THEME_DIR/$THEME.sh"
 
 ##############################

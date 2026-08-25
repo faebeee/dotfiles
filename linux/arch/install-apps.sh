@@ -2,6 +2,7 @@ sudo pacman -S ghostty \
   nautilus \
   lazygit \
   virtualbox \
+  virtualbox-guest-utils-nox \
   tmux \
   zsh \
   nvim \
@@ -12,10 +13,14 @@ sudo pacman -S ghostty \
   pika-backup \
   spotify-launcher \
   nvm \
-  fzf
+  fzf \
+  ufw
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # OPENCODE
 curl -fsSL https://opencode.ai/install | bash
+
+# Enable firewall
+sudo ufw enable

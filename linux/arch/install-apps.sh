@@ -11,6 +11,7 @@ sudo pacman -S ghostty \
   steam \
   pika-backup \
   spotify-launcher \
+  nvm \
   fzf
 
 # ZSH

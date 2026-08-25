@@ -13,13 +13,13 @@ Personal dotfiles. Each config lives in its own directory with a `setup.sh` (or 
 
 ## Linux
 
-| Config | Description |
-| --- | --- |
-| [`linux/arch`](./linux/arch) | Arch Linux app bootstrap |
-| [`linux/fedora`](./linux/fedora) | Fedora app bootstrap |
-| [`linux/ghostty`](./linux/ghostty) | Terminal emulator (Linux variant) |
-| [`linux/chromium-apps`](./linux/chromium-apps) | Chrome/Chromium web app launchers |
-| [`linux/noctalia-hypr`](./linux/noctalia-hypr) | Hyprland WM + Noctalia shell |
+| Config | Description | Preview |
+| --- | --- | --- |
+| [`linux/arch`](./linux/arch) | Arch Linux app bootstrap | - |
+| [`linux/fedora`](./linux/fedora) | Fedora app bootstrap | - |
+| [`linux/ghostty`](./linux/ghostty) | Terminal emulator (Linux variant) | - |
+| [`linux/chromium-apps`](./linux/chromium-apps) | Chrome/Chromium web app launchers | - |
+| [`linux/noctalia-hypr`](./linux/noctalia-hypr) | Hyprland WM + Noctalia shell | ![noctalia-hypr](./linux/noctalia-hypr/noctalia/noctalia.png) |
 
 ## Shared
 

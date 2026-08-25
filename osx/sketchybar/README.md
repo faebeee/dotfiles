@@ -6,10 +6,23 @@ Config for [SketchyBar](https://github.com/FelixKratz/SketchyBar), a customizabl
 
 ## Highlights
 
-- "Kanagawa Wave" muted color theme with a transparent top bar
-- App launcher icon and front-app display
-- Right-side modules: clock, bluetooth, wifi, battery, volume (each backed by a plugin script in `plugins/`)
-- Spotify now-playing widget with a popup for play/next/back/shuffle/repeat controls
+- Solid black bar with white foreground (icons/labels); no per-widget
+  backgrounds or borders
+- Layout mirrors the [Noctalia](../../linux/noctalia-hypr/noctalia) bar: items
+  grouped into `left` (start), `center`, and `right` (end) sections
+- Left: app launcher, plus the center group below when `NOTCH_SPACING=true`
+- Center: Spotify now-playing widget (popup for play/next/back/shuffle/repeat), CPU
+  and memory usage (stand-ins for Noctalia's `sysmon` widgets)
+- Right: wifi (click to open Wi-Fi settings), bluetooth (click to open
+  Bluetooth settings), volume, clock, power/session menu (lock/sleep/logout/
+  reboot/shutdown popup, mirroring Noctalia's `shell.session.actions`), battery
+- Each module is backed by a plugin script in `plugins/`
+- Colors, fonts and spacing live in `themes/` (`mono.sh` is the default);
+  swap the theme by setting `THEME=<name>` before sketchybar loads, or add a
+  new `themes/<name>.sh` file with the same variables to create a new look
+- Set `NOTCH_SPACING=true` in the theme (default `false`) to move the
+  center group (Spotify/CPU/memory) into the left section instead, so it
+  doesn't get hidden behind a MacBook's notch
 
 ## Setup
 

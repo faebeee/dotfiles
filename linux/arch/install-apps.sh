@@ -10,7 +10,8 @@ sudo pacman -S ghostty \
   podman-desktop \
   steam \
   pika-backup \
-  spotify-launcher
+  spotify-launcher \
+  fzf
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

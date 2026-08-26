@@ -32,8 +32,16 @@ Personal dotfiles. Each config lives in its own directory with a `setup.sh` (or 
 
 | Config | Description | Preview |
 | --- | --- | --- |
+| [`shared/btop`](./shared/btop) | btop theme setup | ![btop](./shared/btop/btop.png) |
 | [`shared/nvim`](./shared/nvim) | Neovim (LazyVim-based) | ![nvim](./shared/nvim/nvim.png) |
 | [`shared/tmux`](./shared/tmux) | Terminal multiplexer | ![tmux](./shared/tmux/tmux.png) |
 | [`shared/zsh`](./shared/zsh) | Shell (oh-my-zsh) | ![zsh](./shared/zsh/zsh.png) |
 | [`shared/git`](./shared/git) | Global git config | - |
 | [`shared/wallpapers`](./shared/wallpapers) | Wallpaper collection | - |
+
+## btop themes
+
+- `shared/btop/themes/` stores the available `btop` theme variants
+- `shared/btop/themes/muted-grey.theme` is the current theme
+- `shared/btop/btop.png` shows the theme in use
+- Run `shared/btop/setup.sh` to symlink the themes into `~/.config/btop/themes`

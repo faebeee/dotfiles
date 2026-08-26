@@ -1,0 +1,92 @@
+#Muted grey theme
+# Based on the repo's muted-grey palette.
+
+# Colors should be in 6 or 2 character hexadecimal or single spaced rgb decimal: "#RRGGBB", "#BW" or "0-255 0-255 0-255"
+# example for white: "#FFFFFF", "#ff" or "255 255 255".
+
+# All graphs and meters can be gradients
+# For single color graphs leave "mid" and "end" variable empty.
+# Use "start" and "end" variables for two color gradient
+# Use "start", "mid" and "end" for three color gradient
+
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg]="#1c1c21"
+
+# Main text color
+theme[main_fg]="#f2f2f3"
+
+# Title color for boxes
+theme[title]="#bab8c7"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#ddb69e"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#2f2f37"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#f2f2f3"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#b0b0b5"
+
+# Color of text appearing on top of graphs, i.e uptime and current network graph scaling
+theme[graph_text]="#d9cd9e"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#a8c9ae"
+
+# Cpu box outline color
+theme[cpu_box]="#2f2f37"
+
+# Memory/disks box outline color
+theme[mem_box]="#2f2f37"
+
+# Net up/down box outline color
+theme[net_box]="#2f2f37"
+
+# Processes box outline color
+theme[proc_box]="#2f2f37"
+
+# Box divider line and small boxes line color
+theme[div_line]="#2f2f37"
+
+# Temperature graph colors
+theme[temp_start]="#918da5"
+theme[temp_mid]="#d9a8b8"
+theme[temp_end]="#fd4663"
+
+# CPU graph colors
+theme[cpu_start]="#9fb4d9"
+theme[cpu_mid]="#bcaad9"
+theme[cpu_end]="#f2f2f3"
+
+# Mem/Disk free meter
+theme[free_start]="#2f2f37"
+theme[free_mid]="#a8c9ae"
+theme[free_end]="#d9cd9e"
+
+# Mem/Disk cached meter
+theme[cached_start]="#2f2f37"
+theme[cached_mid]="#9fb4d9"
+theme[cached_end]="#b6b7c9"
+
+# Mem/Disk available meter
+theme[available_start]="#2f2f37"
+theme[available_mid]="#ddb69e"
+theme[available_end]="#bab8c7"
+
+# Mem/Disk used meter
+theme[used_start]="#2f2f37"
+theme[used_mid]="#d9a8b8"
+theme[used_end]="#fd4663"
+
+# Download graph colors
+theme[download_start]="#1c1c21"
+theme[download_mid]="#9fb4d9"
+theme[download_end]="#bcaad9"
+
+# Upload graph colors
+theme[upload_start]="#1c1c21"
+theme[upload_mid]="#d9a8b8"
+theme[upload_end]="#ddb69e"

@@ -1,27 +1,25 @@
 local c = {
-  bg = "#1c1c21",
-  bg_alt = "#1c1c22",
-  bg_soft = "#26262c",
-  bg_muted = "#2f2f37",
-  fg = "#f2f2f3",
-  fg_dim = "#b0b0b5",
-  outline = "#666771",
-  accent = "#989ab3",
-  accent_2 = "#918da5",
-  accent_3 = "#988fa3",
-  accent_soft = "#b6b7c9",
-  accent_soft_2 = "#bab8c7",
-  error = "#fd4663",
+  bg = "#f7f6f3",
+  bg_alt = "#f2f1ee",
+  bg_soft = "#ebe9e5",
+  bg_muted = "#dfdcd6",
+  fg = "#2b2a2e",
+  fg_dim = "#6c6a70",
+  outline = "#c6c3bd",
+  accent = "#5b5d75",
+  accent_2 = "#655a75",
+  accent_3 = "#6a5566",
+  accent_soft = "#454761",
+  accent_soft_2 = "#4c4359",
+  error = "#c23b52",
 
   -- pastel muted accents
-  pastel_pink = "#d9a8b8",
-  pastel_peach = "#ddb69e",
-  pastel_yellow = "#d9cd9e",
-  pastel_green = "#a8c9ae",
-  pastel_blue = "#9fb4d9",
-  pastel_lavender = "#bcaad9",
-
-  bright_blue = "#5fd7ff",
+  pastel_pink = "#a1546a",
+  pastel_peach = "#a56a3c",
+  pastel_yellow = "#8a752b",
+  pastel_green = "#3f7a50",
+  pastel_blue = "#3d5f96",
+  pastel_lavender = "#6a5296",
 }
 
 vim.cmd("hi clear")
@@ -30,8 +28,8 @@ if vim.fn.exists("syntax_on") == 1 then
 end
 
 vim.o.termguicolors = true
-vim.o.background = "dark"
-vim.g.colors_name = "muted-grey"
+vim.o.background = "light"
+vim.g.colors_name = "muted-white"
 
 local function hl(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
@@ -78,7 +76,7 @@ hl("Type", { fg = c.pastel_yellow })
 hl("Special", { fg = c.pastel_pink })
 hl("Underlined", { fg = c.accent_soft, underline = true })
 hl("Error", { fg = c.error, bold = true })
-hl("Todo", { fg = c.bg_alt, bg = c.pastel_yellow, bold = true })
+hl("Todo", { fg = c.bg, bg = c.pastel_yellow, bold = true })
 
 hl("Cursor", { fg = c.bg, bg = c.fg })
 hl("lCursor", { fg = c.bg, bg = c.fg })
@@ -86,9 +84,9 @@ hl("CursorLine", { bg = c.bg_soft })
 hl("CursorColumn", { bg = c.bg_soft })
 hl("ColorColumn", { bg = c.bg_soft })
 hl("Visual", { bg = c.bg_muted })
-hl("Search", { fg = c.bg_alt, bg = c.accent_soft })
-hl("IncSearch", { fg = c.bg_alt, bg = c.error, bold = true })
-hl("MatchParen", { fg = c.bg_alt, bg = c.accent_2, bold = true })
+hl("Search", { fg = c.bg, bg = c.accent_soft })
+hl("IncSearch", { fg = c.bg, bg = c.error, bold = true })
+hl("MatchParen", { fg = c.bg, bg = c.accent_2, bold = true })
 hl("WinSeparator", { fg = c.outline })
 hl("VertSplit", { fg = c.outline })
 hl("LineNr", { fg = c.outline })
@@ -99,11 +97,11 @@ hl("FoldColumn", { fg = c.outline, bg = c.bg })
 hl("StatusLine", { fg = c.fg, bg = c.bg_soft })
 hl("StatusLineNC", { fg = c.fg_dim, bg = c.bg_soft })
 hl("TabLine", { fg = c.fg_dim, bg = c.bg_soft })
-hl("TabLineSel", { fg = c.bg_alt, bg = c.bright_blue, bold = true })
+hl("TabLineSel", { fg = c.bg, bg = c.pastel_blue, bold = true })
 hl("TabLineFill", { bg = c.bg_soft })
 
 hl("Pmenu", { fg = c.fg, bg = c.bg_soft })
-hl("PmenuSel", { fg = c.bg_alt, bg = c.accent })
+hl("PmenuSel", { fg = c.bg, bg = c.accent })
 hl("PmenuSbar", { bg = c.bg_muted })
 hl("PmenuThumb", { bg = c.accent })
 hl("NormalFloat", { fg = c.fg, bg = c.bg_soft })

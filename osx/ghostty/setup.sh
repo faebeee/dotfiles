@@ -1,4 +1,5 @@
-rm -rf "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
-ln -sf "$(pwd -P)/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
-rm -rf "$HOME/Library/Application Support/com.mitchellh.ghostty/themes"
-ln -sf "$(pwd -P)/themes" "$HOME/Library/Application Support/com.mitchellh.ghostty/themes"
+rm -rf "$HOME/.config/ghostty/config"
+ln -sf "$(pwd -P)/config" "$HOME/.config/ghostty/config"
+
+rm -rf "$HOME/.config/ghostty/themes/muted-grey"
+ln -sf "$(pwd -P)/themes" "$HOME/.config/ghostty/themes"

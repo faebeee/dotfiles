@@ -21,6 +21,13 @@ Personal dotfiles. Each config lives in its own directory with a `setup.sh` (or 
 | [`linux/chromium-apps`](./linux/chromium-apps) | Chrome/Chromium web app launchers | - |
 | [`linux/noctalia-hypr`](./linux/noctalia-hypr) | Hyprland WM + Noctalia shell | ![noctalia-hypr](./linux/noctalia-hypr/noctalia/noctalia.png) |
 
+## SketchyBar themes
+
+- `osx/sketchybar/themes/` stores the available SketchyBar theme variants
+- `osx/sketchybar/themes/mono.sh` is the default theme
+- Set `THEME=<name>` before SketchyBar loads to switch themes, or add a new
+  `themes/<name>.sh` file with the same variables to create a new look
+
 ## Shared
 
 | Config | Description | Preview |

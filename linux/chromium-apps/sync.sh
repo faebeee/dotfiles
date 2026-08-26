@@ -1,1 +1,1 @@
-cp -R $HOME/.local/share/applications/. "$(pwd -P)/apps/"
+cp -R $HOME/.local/share/applications/chrome-* "$(pwd -P)/apps/"

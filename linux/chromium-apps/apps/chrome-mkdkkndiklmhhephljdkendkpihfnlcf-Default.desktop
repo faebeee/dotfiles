@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Planner | Notion
+Exec=/usr/bin/chromium --profile-directory=Default --app-id=mkdkkndiklmhhephljdkendkpihfnlcf
+Icon=chrome-mkdkkndiklmhhephljdkendkpihfnlcf-Default
+StartupWMClass=crx_mkdkkndiklmhhephljdkendkpihfnlcf

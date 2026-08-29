@@ -10,7 +10,7 @@ capsule_radius = 8
 center = [ "media", "temp", "sysmon_2", "sysmon_3", "tray" ]
 concave_edge_corners = true
 contact_shadow = true
-end = [ "notifications", "network", "volume", "clock", "session", "battery" ]
+end = [ "notifications", "network", "volume", "keyboard_layout", "clock", "session", "battery" ]
 font_family = "JetBrains Mono Light"
 margin_edge = 8
 margin_ends = 8
@@ -201,6 +201,11 @@ hide_when_plugged = true
 [widget.clock]
 color = "secondary"
 format = "{:%H:%M %A %m/%d/%y}"
+
+[widget.keyboard_layout]
+display = "short"
+show_glyph = true
+show_label = true
 
 [widget.launcher]
 color = "secondary"

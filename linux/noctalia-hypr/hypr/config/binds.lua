@@ -92,6 +92,9 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(noctCall .. "media previous"), { locked
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctCall .. "brightness-up"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"), { locked = true, repeating = true })
 
+-- Keyboard layout
+hl.bind(mainMod .. " + ALT + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
+
 -------------------
 ---- UTILITIES ----
 -------------------

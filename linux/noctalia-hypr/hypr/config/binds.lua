@@ -128,6 +128,9 @@ hl.bind(mainMod .. " + CONTROL + Right", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind(mainMod .. " + CONTROL + Left", hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. " + CONTROL + Down", hl.dsp.focus({ workspace = "emptym" }))
 
+-- Move current workspace to the next monitor
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.workspace.move({ monitor = "+1" }))
+
 -- Scroll through existing workspaces & monitors
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "m+1" }))

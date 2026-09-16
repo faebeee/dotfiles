@@ -7,7 +7,7 @@ EDITOR = "gnome-text-editor --new-window"
 CALCULATOR = "gnome-calculator"
 
 -- Monitors
-MONITOR1 = ""
+MONITOR1 = "Laptop"
 MONITOR2 = ""
 MONITOR3 = ""
 PRIMARY_MONITOR = MONITOR1

@@ -92,6 +92,9 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(noctCall .. "media previous"), { locked
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctCall .. "brightness-up"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"), { locked = true, repeating = true })
 
+-- Keyboard layout
+hl.bind(mainMod .. " + ALT + Space", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
+
 -------------------
 ---- UTILITIES ----
 -------------------
@@ -127,6 +130,9 @@ end
 hl.bind(mainMod .. " + CONTROL + Right", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind(mainMod .. " + CONTROL + Left", hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. " + CONTROL + Down", hl.dsp.focus({ workspace = "emptym" }))
+
+-- Move current workspace to the next monitor
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.workspace.move({ monitor = "+1" }))
 
 -- Scroll through existing workspaces & monitors
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "m-1" }))

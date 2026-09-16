@@ -14,7 +14,8 @@ sudo pacman -S ghostty \
   spotify-launcher \
   nvm \
   fzf \
-  ufw
+  ufw \
+  github-cli
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

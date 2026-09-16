@@ -49,3 +49,4 @@ export PATH=$HOME/.opencode/bin:$PATH
 
 #colorscript
 export PATH="/home/fabs/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

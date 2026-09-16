@@ -22,5 +22,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # OPENCODE
 curl -fsSL https://opencode.ai/install | bash
 
+# Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
 # Enable firewall
 sudo ufw enable

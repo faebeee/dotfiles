@@ -16,3 +16,6 @@ installApp zsh-autosuggestions
 installApp zsh-syntax-highlighting
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+
+brew tap narugit/tap
+installApp narugit/tap/smctemp

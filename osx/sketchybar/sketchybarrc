@@ -141,6 +141,13 @@ sketchybar --add item gpu_temp "$CENTER_SECTION" \
   script="$PLUGIN_DIR/gpu-temp.sh" \
   --subscribe gpu_temp system_woke
 
+sketchybar --add item disk "$CENTER_SECTION" \
+  --set disk icon=󰋊 \
+  update_freq=60 \
+  script="$PLUGIN_DIR/disk.sh" \
+  --subscribe disk system_woke
+
+
 ################################################
 #  END: Network, Volume, Clock, Session, Battery #
 ################################################

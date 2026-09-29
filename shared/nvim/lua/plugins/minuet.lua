@@ -30,7 +30,7 @@ return {
         virtualtext = {
           auto_trigger_ft = { "*" },
           keymap = {
-            accept = "<C-y>",
+            accept = "<C-a>",
             accept_line = "<C-w>",
             next = "<M-.>",
             prev = "<M-,>",

@@ -8,8 +8,15 @@
 -- })
 
 hl.monitor({
+	output = MONITOR2,
+	mode = "3440x1440@59.97",
+	position = "4608x0",
+	scale = "1",
+})
+
+hl.monitor({
 	output = MONITOR1,
-	mode = "preferred",
-	position = "auto",
+	mode = "1920x1200@60.00",
+	position = "2688x1440",
 	scale = "1",
 })

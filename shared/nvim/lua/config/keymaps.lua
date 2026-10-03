@@ -16,6 +16,14 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 --vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 --vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 
+-- Navigate to next/previous error
+vim.keymap.set("n", "[e", function()
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Prev Error" })
+vim.keymap.set("n", "]e", function()
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Next Error" })
+
 -- Session Persistence
 vim.keymap.set("n", "<leader>qs", function()
   require("persistence").load()
@@ -35,11 +43,6 @@ end, { desc = "Load last session" })
 vim.keymap.set("n", "<leader>qd", function()
   require("persistence").stop()
 end, { desc = "Quit without saving session" })
-
---
--- vim.keymap.set("i", "<C-a>", function()
---  require("copilot.suggestion").accept()
--- end)
 
 vim.keymap.set("v", "p", '"_dP')
 

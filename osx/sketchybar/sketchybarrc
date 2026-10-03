@@ -117,16 +117,36 @@ for ctrl in "${controls[@]}"; do
 done
 
 sketchybar --add item cpu "$CENTER_SECTION" \
-  --set cpu icon=󰻠 \
+  --set cpu icon= \
   update_freq=5 \
   script="$PLUGIN_DIR/cpu.sh" \
   --subscribe cpu system_woke
 
+sketchybar --add item cpu_temp "$CENTER_SECTION" \
+  --set cpu_temp icon= \
+  update_freq=5 \
+  script="$PLUGIN_DIR/cpu-temp.sh" \
+  --subscribe cpu_temp system_woke
+
 sketchybar --add item memory "$CENTER_SECTION" \
-  --set memory icon=󰍛 \
+  --set memory icon= \
   update_freq=5 \
   script="$PLUGIN_DIR/memory.sh" \
   --subscribe memory system_woke
+--subscribe cpu system_woke
+
+sketchybar --add item gpu_temp "$CENTER_SECTION" \
+  --set gpu_temp icon= \
+  update_freq=5 \
+  script="$PLUGIN_DIR/gpu-temp.sh" \
+  --subscribe gpu_temp system_woke
+
+sketchybar --add item disk "$CENTER_SECTION" \
+  --set disk icon=󰋊 \
+  update_freq=60 \
+  script="$PLUGIN_DIR/disk.sh" \
+  --subscribe disk system_woke
+
 
 ################################################
 #  END: Network, Volume, Clock, Session, Battery #

@@ -36,9 +36,10 @@ vim.keymap.set("n", "<leader>qd", function()
   require("persistence").stop()
 end, { desc = "Quit without saving session" })
 
-vim.keymap.set("i", "<C-a>", function()
-  require("copilot.suggestion").accept()
-end)
+--
+-- vim.keymap.set("i", "<C-a>", function()
+--  require("copilot.suggestion").accept()
+-- end)
 
 vim.keymap.set("v", "p", '"_dP')
 

@@ -4,8 +4,8 @@
  */
 
 * {
-    bg:          #211c1c;
-    bg-alt:      #221c1c;
+    bg:          rgba(20, 20, 20, 0.9);
+    bg-alt:      rgba(20, 20, 20, 0.9);
     fg:          #f3f2f2;
     fg-alt:      #999999;
     primary:     #a6a6a6;
@@ -20,21 +20,22 @@ window {
     background-color: @bg;
     border:           1px;
     border-color:     @primary;
-    border-radius:    4px;
-    width:            30%;
-    padding:          12px;
+    border-radius:    0px;
+    width:            90%;
+    height:            90%;
+    padding:          0px;
 }
 
 mainbox {
     background-color: transparent;
     children: [ "inputbar", "listview" ];
-    spacing: 10px;
+    spacing: 0px;
 }
 
 inputbar {
     background-color: @bg-alt;
     text-color:        @fg;
-    border-radius:      8px;
+    border-radius:      0px;
     padding:            10px 12px;
     children: [ "prompt", "entry" ];
 }
@@ -53,15 +54,15 @@ listview {
     background-color: transparent;
     lines:             8;
     columns:           1;
-    spacing:           8px;
+    spacing:           0px;
     fixed-height:      false;
 }
 
 element {
     background-color: transparent;
     text-color:        @fg;
-    border-radius:     8px;
-    padding:            8px 10px;
+    border-radius:     0px;
+    padding:           8px 10px;
 }
 
 element selected {

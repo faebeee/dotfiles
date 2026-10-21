@@ -1,4 +1,5 @@
 sudo pacman -S ghostty \
+  rofi \
   nautilus \
   lazygit \
   virtualbox \

@@ -1,0 +1,78 @@
+/**
+ * Colors pulled from the active Noctalia theme
+ * (see ../noctalia-hypr/hypr/noctalia.lua)
+ */
+
+* {
+    bg:          #211c1c;
+    bg-alt:      #221c1c;
+    fg:          #f3f2f2;
+    fg-alt:      #999999;
+    primary:     #a6a6a6;
+    secondary:   #999999;
+    error:       #fd4663;
+
+    background-color:   transparent;
+    text-color:         @fg;
+}
+
+window {
+    background-color: @bg;
+    border:           1px;
+    border-color:     @primary;
+    border-radius:    4px;
+    width:            30%;
+    padding:          12px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ "inputbar", "listview" ];
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color:        @fg;
+    border-radius:      8px;
+    padding:            10px 12px;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    text-color: @primary;
+}
+
+entry {
+    placeholder:       "Search apps...";
+    placeholder-color: @fg-alt;
+    text-color:        @fg;
+}
+
+listview {
+    background-color: transparent;
+    lines:             8;
+    columns:           1;
+    spacing:           8px;
+    fixed-height:      false;
+}
+
+element {
+    background-color: transparent;
+    text-color:        @fg;
+    border-radius:     8px;
+    padding:            8px 10px;
+}
+
+element selected {
+    background-color: @secondary;
+    text-color:        @bg-alt;
+}
+
+element-icon {
+    size: 1.2em;
+}
+
+element-text {
+    vertical-align: 0.5;
+}

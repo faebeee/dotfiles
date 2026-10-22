@@ -119,6 +119,9 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-cen
 
 -- Focus on monitors
 
+-- Switch hyprmon monitor profile
+hl.bind(mainMod .. " + CONTROL + M", hl.dsp.exec_cmd(launchPrefix .. "~/.config/hyprmon/profile-switcher.sh"))
+
 -- Focus on workspace number
 -- Absolute
 for i = 1, NUM_WPM do

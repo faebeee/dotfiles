@@ -9,10 +9,9 @@ require("config.environment")
 require("config.inputs")
 require("config.binds")
 require("config.misc")
-require("config.monitors")
+-- require("config.monitors")
 require("config.windowrules")
 require("config.workspaces")
-
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()

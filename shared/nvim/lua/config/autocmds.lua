@@ -13,4 +13,4 @@ vim.filetype.add({
   },
 })
 
-vim.cmd.colorscheme("muted-grey")
+--vim.cmd.colorscheme("muted-grey")

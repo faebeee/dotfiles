@@ -1,15 +1,26 @@
 #!/usr/bin/env bash
 #
 # Triggered by Hyprland's monitoradded/monitorremoved events.
-# Applies a specific hyprmon profile when only the main laptop screen
-# (eDP-1) is connected.
+# Cycles through all available hyprmon profiles each time it is called.
 
-LAPTOP_MONITOR="eDP-1"
-LAPTOP_ONLY_PROFILE="Laptop Only"
+mapfile -t profiles < <(hyprmon -list-profiles | sed 's/ \*$//')
+profile_count="${#profiles[@]}"
 
-connected_monitors="$(hyprctl monitors -j | jq -r '.[].name')"
-monitor_count="$(wc -l <<<"$connected_monitors")"
-
-if [[ "$monitor_count" -eq 1 && "$connected_monitors" == "$LAPTOP_MONITOR" ]]; then
-  hyprmon -profile "$LAPTOP_ONLY_PROFILE"
+if [[ "$profile_count" -eq 0 ]]; then
+  exit 0
 fi
+
+active_profile="$(hyprmon -active-profile)"
+
+current_index=-1
+for i in "${!profiles[@]}"; do
+  if [[ "${profiles[$i]}" == "$active_profile" ]]; then
+    current_index="$i"
+    break
+  fi
+done
+
+next_index=$(( (current_index + 1) % profile_count ))
+next_profile="${profiles[$next_index]}"
+
+hyprmon -profile "$next_profile"

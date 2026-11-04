@@ -1,15 +1,31 @@
 [session]
 default = "Hyprland (uwsm-managed)"
 
+[user]
+default = "fabs"
+
 [appearance]
-scheme = "Synced"
+#scheme = "Synced"
 password_style = "default"
-hide_logo = false
+hide_logo = true
 power_buttons_position = "bottom-right"
-scheme_selector_position = "top-right"
+scheme_selector_position = "hidden"
 theme_mode = "dark"
-corner_radius_scale = 1.0
+corner_radius_scale = 0
 
 [appearance.wallpaper]
 # No image - solid color only, matching current live Noctalia surface color.
-fill_color = "#1c1e1a"
+# Using the "color:#RRGGBB" path form (rather than omitting path / fill_color)
+# so this explicitly overrides the per-output image paths Sync writes to sync.toml.
+path = "color:#1c1e1a"
+
+# Per-output wallpaper paths from Sync must be explicitly overridden here,
+# otherwise they take priority over the default wallpaper above.
+[appearance.wallpapers.HDMI-A-1]
+path = "color:#1c1e1a"
+
+[appearance.wallpapers.eDP-1]
+path = "color:#1c1e1a"
+
+[clock]
+enabled = false

@@ -1,0 +1,15 @@
+[session]
+default = "Hyprland (uwsm-managed)"
+
+[appearance]
+scheme = "Synced"
+password_style = "default"
+hide_logo = false
+power_buttons_position = "bottom-right"
+scheme_selector_position = "top-right"
+theme_mode = "dark"
+corner_radius_scale = 1.0
+
+[appearance.wallpaper]
+# No image - solid color only, matching current live Noctalia surface color.
+fill_color = "#1c1e1a"

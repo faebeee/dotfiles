@@ -2,15 +2,14 @@
 ui_scale = 1
 
 [bar.default]
-border = "#FF0000"
-capsule = true
-capsule_group = []
-capsule_opacity = 0.40000000000000002
+background_opacity = 0
+capsule = false
+compositor_blur = false
 capsule_radius = 8
-center = [ "media", "temp", "sysmon_2", "sysmon_3", "tray" ]
+center = [ "group:center" ]
 concave_edge_corners = true
-contact_shadow = true
-end = [ "notifications", "network", "volume", "keyboard_layout", "clock", "session", "battery" ]
+contact_shadow = false
+end = [ "group:end" ]
 font_family = "JetBrains Mono Light"
 margin_edge = 8
 margin_ends = 8
@@ -22,9 +21,34 @@ radius_bottom_right = 0
 radius_top_left = 0
 radius_top_right = 0
 scale = 1
-start = [ "launcher", "workspaces" ]
+shadow = false
+start = [ "group:start" ]
 thickness = 36
-widget_spacing = 12
+widget_spacing = 16
+
+    [[bar.default.capsule_group]]
+    id = "start"
+    members = [ "launcher", "workspaces" ]
+    fill = "#000000"
+    opacity = 1.0
+    radius = 8
+    padding = 8
+
+    [[bar.default.capsule_group]]
+    id = "center"
+    members = [ "media", "temp", "sysmon_2", "sysmon_3", "tray" ]
+    fill = "#000000"
+    opacity = 1.0
+    radius = 8
+    padding = 8
+
+    [[bar.default.capsule_group]]
+    id = "end"
+    members = [ "notifications", "network", "volume", "keyboard_layout", "clock", "session", "battery" ]
+    fill = "#000000"
+    opacity = 1.0
+    radius = 8
+    padding = 8
 
 [battery.device."/org/freedesktop/UPower/devices/mouse_dev_D4_34_30_C7_45_07"]
 warning_threshold = 10

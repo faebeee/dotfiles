@@ -21,8 +21,9 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "muted-grey",
+        --colorscheme = "muted-grey",
         --colorscheme = "noctalia",
+        colorscheme = "cyberpunk",
         --colorscheme = "sorbet",
       },
     },

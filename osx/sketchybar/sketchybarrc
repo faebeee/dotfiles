@@ -97,9 +97,12 @@ if command -v aerospace >/dev/null 2>&1; then
   while read -r ws; do
     [ -n "$ws" ] || continue
 
-    # Items start as dots; aerospace.sh expands the focused one into its name.
+    # Items start hidden as dots; aerospace.sh reveals the occupied ones and
+    # expands the focused one into its name. Starting hidden avoids a flash
+    # of every workspace during startup.
     sketchybar --add item "space.$ws" left \
       --set "space.$ws" icon="$WORKSPACE_DOT_ICON" \
+      drawing=off \
       icon.font.size="$WORKSPACE_DOT_FONT_SIZE" \
       icon.padding_left="$WORKSPACE_ICON_PADDING" \
       icon.padding_right="$WORKSPACE_ICON_PADDING" \
@@ -119,13 +122,19 @@ if command -v aerospace >/dev/null 2>&1; then
 
   # Hidden driver item: refreshes every space.* item in one batch whenever
   # the focused workspace changes.
+  #
+  # `space_windows_change` is a native macOS Spaces event and never fires
+  # under AeroSpace, so occupancy is kept fresh by the explicit triggers in
+  # ~/.aerospace.toml plus a low-frequency poll as a safety net (covers apps
+  # quitting in a background workspace, `aerospace` run from a shell, ...).
   sketchybar --add event aerospace_workspace_change \
     --add item spaces_watcher left \
     --set spaces_watcher drawing=off \
     updates=on \
+    update_freq="$WORKSPACE_POLL_FREQ" \
     script="$PLUGIN_DIR/aerospace.sh" \
     --subscribe spaces_watcher aerospace_workspace_change front_app_switched \
-    space_windows_change system_woke
+    system_woke
 fi
 
 ################################################
@@ -171,35 +180,10 @@ for ctrl in "${controls[@]}"; do
     --subscribe "spotify.$name" mouse.clicked spotify_change
 done
 
-sketchybar --add item cpu "$CENTER_SECTION" \
-  --set cpu icon= \
-  update_freq=5 \
-  script="$PLUGIN_DIR/cpu.sh" \
-  --subscribe cpu system_woke
-
-sketchybar --add item cpu_temp "$CENTER_SECTION" \
-  --set cpu_temp icon= \
-  update_freq=5 \
-  script="$PLUGIN_DIR/cpu-temp.sh" \
-  --subscribe cpu_temp system_woke
-
-sketchybar --add item memory "$CENTER_SECTION" \
-  --set memory icon= \
-  update_freq=5 \
-  script="$PLUGIN_DIR/memory.sh" \
-  --subscribe memory system_woke
-
-sketchybar --add item gpu_temp "$CENTER_SECTION" \
-  --set gpu_temp icon= \
-  update_freq=5 \
-  script="$PLUGIN_DIR/gpu-temp.sh" \
-  --subscribe gpu_temp system_woke
-
-sketchybar --add item disk "$CENTER_SECTION" \
-  --set disk icon=󰋊 \
-  update_freq=60 \
-  script="$PLUGIN_DIR/disk.sh" \
-  --subscribe disk system_woke
+sketchybar --add item time "$CENTER_SECTION" \
+  --set time update_freq=10 \
+  icon= \
+  script="$PLUGIN_DIR/clock.sh"
 
 ##################################################
 #  ISLAND 3: Network, volume, clock, session, battery #
@@ -235,11 +219,6 @@ for action in "${power_actions[@]}"; do
     --subscribe "power.$name" mouse.clicked
 done
 
-sketchybar --add item time right \
-  --set time update_freq=10 \
-  icon= \
-  script="$PLUGIN_DIR/clock.sh"
-
 sketchybar --add item volume right \
   --set volume icon=󰕾 \
   script="$PLUGIN_DIR/volume.sh" \
@@ -271,11 +250,11 @@ sketchybar --add bracket island.left "${ISLAND_LEFT_MEMBERS[@]}" \
   --set island.left "${island[@]}"
 
 sketchybar --add bracket island.center \
-  spotify.name cpu cpu_temp memory gpu_temp disk \
+  spotify.name time \
   --set island.center "${island[@]}"
 
 sketchybar --add bracket island.right \
-  bluetooth wifi volume time power battery \
+  bluetooth wifi volume power battery \
   --set island.right "${island[@]}"
 
 # Breathing room between the islands and the screen edges.

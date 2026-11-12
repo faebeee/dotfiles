@@ -92,6 +92,11 @@ WORKSPACE_LABEL_PADDING=8
 # Show workspaces that have no windows (and aren't focused).
 SHOW_EMPTY_WORKSPACES=false
 
+# Safety-net poll (seconds) for workspace occupancy. Most changes arrive as
+# events; this catches the rest (apps quitting in a background workspace,
+# `aerospace` invoked from a shell, ...). Set to 0 to rely on events only.
+WORKSPACE_POLL_FREQ=5
+
 ##############################
 #  Popups                     #
 ##############################

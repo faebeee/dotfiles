@@ -33,7 +33,10 @@ Config for [SketchyBar](https://github.com/FelixKratz/SketchyBar), a customizabl
 - Workspace indicator look is controlled by `COLOR_WORKSPACE_*`,
   `WORKSPACE_*` and `SHOW_EMPTY_WORKSPACES` (set it to `true` to always show
   every workspace, or `WORKSPACE_LABEL_ALWAYS=on` to always show names);
-  per-workspace icons are mapped in `workspace_icons` in `sketchybarrc`
+  per-workspace icons are mapped in `workspace_icons` in `sketchybarrc`.
+  Occupancy is event-driven (AeroSpace triggers `aerospace_workspace_change`
+  on workspace switches and window moves); `WORKSPACE_POLL_FREQ` is a
+  safety-net poll for changes that emit no event
 - Set `NOTCH_SPACING=true` in the theme (default `false`) to move the
   center island into the left section instead, so it doesn't get hidden
   behind a MacBook's notch

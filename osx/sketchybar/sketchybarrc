@@ -155,6 +155,7 @@ sketchybar --add event spotify_change $SPOTIFY_EVENT \
   --set spotify.name icon=󰓇 \
   icon.font.size=15.0 \
   label="Not Playing" \
+  drawing=off \
   update_freq=5 \
   script="$PLUGIN_DIR/spotify.sh" \
   click_script="$POPUP_SCRIPT" \
@@ -190,13 +191,6 @@ sketchybar --add item time "$CENTER_SECTION" \
 ##################################################
 # Items are added right-to-left, so the visual order on screen is the
 # reverse of the order below: wifi, bluetooth, volume, clock, power, battery.
-
-sketchybar --add item battery right \
-  --set battery icon=󰁹 \
-  update_freq=60 \
-  script="$PLUGIN_DIR/battery.sh" \
-  --subscribe battery system_woke power_source_change
-
 sketchybar --add item power right \
   --set power icon=󰐥 \
   label.drawing=off \
@@ -219,17 +213,35 @@ for action in "${power_actions[@]}"; do
     --subscribe "power.$name" mouse.clicked
 done
 
+sketchybar --add item battery right \
+  --set battery icon=󰁹 \
+  update_freq=60 \
+  script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
 sketchybar --add item volume right \
   --set volume icon=󰕾 \
   script="$PLUGIN_DIR/volume.sh" \
   --subscribe volume volume_change
 
+# Only the connection icon is shown in the bar; clicking it opens a popup
+# with the network name. Clicking the name opens the Wi-Fi settings.
 sketchybar --add item wifi right \
   --set wifi icon=󰤨 \
+  label.drawing=off \
   update_freq=30 \
   script="$PLUGIN_DIR/wifi.sh" \
-  click_script="open x-apple.systempreferences:com.apple.wifi-settings" \
-  --subscribe wifi wifi_change
+  click_script="$POPUP_SCRIPT" \
+  popup.align=center \
+  popup.background.color="$COLOR_POPUP_BG" \
+  popup.background.corner_radius="$POPUP_CORNER_RADIUS" \
+  popup.background.border_width="$POPUP_BORDER_WIDTH" \
+  popup.background.shadow.drawing=off \
+  --subscribe wifi wifi_change system_woke \
+  --add item wifi.ssid popup.wifi \
+  --set wifi.ssid icon=󰖩 \
+  label="…" \
+  click_script="open x-apple.systempreferences:com.apple.wifi-settings; sketchybar --set wifi popup.drawing=off"
 
 sketchybar --add item bluetooth right \
   --add event bluetooth_status "com.apple.bluetooth.status" \

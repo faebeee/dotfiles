@@ -35,51 +35,34 @@ shuffle() {
 }
 
 update() {
-  # Check if Spotify is running
+  # Only show the widget while Spotify is actually playing
   SPOTIFY_RUNNING=$(osascript -e 'application "Spotify" is running')
+  STATE=""
+  if [ "$SPOTIFY_RUNNING" = "true" ]; then
+    STATE=$(osascript -e 'tell application "Spotify" to player state')
+  fi
 
-  if [ "$SPOTIFY_RUNNING" = "false" ]; then
-    # Hide widget if Spotify is closed
+  if [ "$STATE" != "playing" ]; then
     sketchybar -m --set spotify.name drawing=off popup.drawing=off
     exit 0
   fi
 
-  # Default values
-  DRAW_LABEL="on";
-  TRACK=""
-  ARTIST="Not Playing"
-  ALBUM=""
+  TRACK=$(osascript -e 'tell application "Spotify" to name of current track' | cut -c1-10)
+  ARTIST=$(osascript -e 'tell application "Spotify" to artist of current track' | cut -c1-5)
+  ALBUM=$(osascript -e 'tell application "Spotify" to album of current track' | cut -c1-15)
   SHUFFLE=$(osascript -e 'tell application "Spotify" to get shuffling')
   REPEAT=$(osascript -e 'tell application "Spotify" to get repeating')
-  STATE=$(osascript -e 'tell application "Spotify" to player state')
 
-  if [ "$STATE" = "playing" ]; then
-    TRACK=$(osascript -e 'tell application "Spotify" to name of current track' | cut -c1-10)
-    ARTIST=$(osascript -e 'tell application "Spotify" to artist of current track' | cut -c1-5)
-    ALBUM=$(osascript -e 'tell application "Spotify" to album of current track' | cut -c1-15)
-  fi
-
-  args=()
-
-  # Always show the widget if Spotify is running
   if [ "$ARTIST" = "" ]; then
-    args+=(--set spotify.name label="${TRACK} ${ALBUM}" drawing=on)
+    LABEL="${TRACK} ${ALBUM}"
   else
-    args+=(--set spotify.name label="${TRACK} ${ARTIST}" drawing=on)
+    LABEL="${TRACK} ${ARTIST}"
   fi
 
-  if [ "$STATE" = "playing" ]; then
-    args+=(--set spotify.play icon=􀊆)
-  else
-    args+=(--set spotify.play icon=􀊄)
-    DRAW_LABEL='off'
-  fi
-
-  args+=(--set spotify.shuffle icon.highlight="$SHUFFLE")
-  args+=(--set spotify.repeat icon.highlight="$REPEAT")
-  args+=(--set spotify.name label.drawing="$DRAW_LABEL")
-
-  sketchybar -m "${args[@]}"
+  sketchybar -m --set spotify.name label="$LABEL" label.drawing=on drawing=on \
+    --set spotify.play icon=􀊆 \
+    --set spotify.shuffle icon.highlight="$SHUFFLE" \
+    --set spotify.repeat icon.highlight="$REPEAT"
 }
 
 mouse_clicked() {

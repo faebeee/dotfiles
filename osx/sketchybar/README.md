@@ -19,7 +19,7 @@ Config for [SketchyBar](https://github.com/FelixKratz/SketchyBar), a customizabl
   which triggers the `aerospace_workspace_change` event
 - Center island: Spotify now-playing widget (popup for play/next/back/shuffle/repeat),
   CPU/GPU temps, CPU, memory and disk usage (stand-ins for Noctalia's `sysmon` widgets)
-- Right island: wifi (click to open Wi-Fi settings), bluetooth (click to open
+- Right island: wifi (icon only; click for a popup with the network name, click the name to open Wi-Fi settings), bluetooth (click to open
   Bluetooth settings), volume, clock, power/session menu (lock/sleep/logout/
   reboot/shutdown popup, mirroring Noctalia's `shell.session.actions`), battery
 - Each module is backed by a plugin script in `plugins/`

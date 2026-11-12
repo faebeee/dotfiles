@@ -10,4 +10,7 @@ ln -sf "$(pwd -P)/noctalia/palettes" $HOME/.config/noctalia/palettes
 rm $HOME/.local/state/noctalia/settings.toml
 cp "$(pwd -P)/noctalia/settings.toml" $HOME/.local/state/noctalia/settings.toml
 
+rm $HOME/.local/state/noctalia/state.toml
+ln -sf "$(pwd -P)/noctalia/state.toml" $HOME/.local/state/noctalia/state.toml
+
 hyprctl reload

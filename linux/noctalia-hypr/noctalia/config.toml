@@ -2,7 +2,7 @@
 ui_scale = 1
 
 [bar.default]
-border = "#FFFFFF"
+border = "#FF0000"
 capsule = true
 capsule_group = []
 capsule_opacity = 0.40000000000000002

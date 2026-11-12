@@ -15,12 +15,13 @@ THEME="${THEME:-noctalia}"
 source "$THEME_DIR/$THEME.sh"
 
 ##############################
-#  Bar – Noctalia-style       #
+#  Bar – three islands        #
 ##############################
-# Layout mirrors the Noctalia bar.default config order:
-#   start  = launcher
-#   center = media, cpu, memory (stand-ins for temp/sysmon_2/sysmon_3)
-#   end    = network (wifi, bluetooth), volume, clock, session (power), battery
+# The bar itself is fully transparent. The visible surfaces are three
+# rounded "islands" (bracket items) drawn behind each group:
+#   left   = launcher
+#   center = media + system monitors
+#   right  = network, volume, clock, session, battery
 
 sketchybar --bar position=top \
   height="$BAR_HEIGHT" \
@@ -63,8 +64,21 @@ default=(
 
 sketchybar --default "${default[@]}"
 
+# Shared styling applied to every island bracket.
+island=(
+  background.drawing=on
+  background.color="$COLOR_ISLAND_BG"
+  background.border_color="$COLOR_ISLAND_BORDER"
+  background.border_width="$ISLAND_BORDER_WIDTH"
+  background.corner_radius="$ISLAND_CORNER_RADIUS"
+  background.height="$ISLAND_HEIGHT"
+  background.shadow.drawing="$ISLAND_SHADOW"
+)
+
+POPUP_SCRIPT="sketchybar -m --set \$NAME popup.drawing=toggle"
+
 ################################
-#  START: Launcher              #
+#  ISLAND 1: Launcher + spaces  #
 ################################
 
 sketchybar --add item launcher left \
@@ -72,10 +86,52 @@ sketchybar --add item launcher left \
   icon.font.size=20.0 \
   label.drawing=off
 
-#################################################
-#  CENTER: Media, CPU, Memory (noctalia sysmon)  #
-#################################################
-# When the display has a notch (NOTCH_SPACING=true), this group is placed in
+# AeroSpace workspace indicator. Unfocused workspaces are reduced to a plain
+# dot; the focused one shows its name instead. Empty workspaces are hidden
+# entirely (see SHOW_EMPTY_WORKSPACES in the theme). State is refreshed by
+# plugins/aerospace.sh via the hidden spaces_watcher item below.
+
+ISLAND_LEFT_MEMBERS=(launcher)
+
+if command -v aerospace >/dev/null 2>&1; then
+  while read -r ws; do
+    [ -n "$ws" ] || continue
+
+    # Items start as dots; aerospace.sh expands the focused one into its name.
+    sketchybar --add item "space.$ws" left \
+      --set "space.$ws" icon="$WORKSPACE_DOT_ICON" \
+      icon.font.size="$WORKSPACE_DOT_FONT_SIZE" \
+      icon.padding_left="$WORKSPACE_ICON_PADDING" \
+      icon.padding_right="$WORKSPACE_ICON_PADDING" \
+      padding_left="$WORKSPACE_ITEM_PADDING" \
+      padding_right="$WORKSPACE_ITEM_PADDING" \
+      label="$ws" \
+      label.drawing=off \
+      label.padding_left="$WORKSPACE_LABEL_PADDING" \
+      label.padding_right="$WORKSPACE_LABEL_PADDING" \
+      background.corner_radius="$WORKSPACE_CORNER_RADIUS" \
+      background.height="$WORKSPACE_HEIGHT" \
+      background.drawing=off \
+      click_script="aerospace workspace $ws"
+
+    ISLAND_LEFT_MEMBERS+=("space.$ws")
+  done <<<"$(aerospace list-workspaces --all)"
+
+  # Hidden driver item: refreshes every space.* item in one batch whenever
+  # the focused workspace changes.
+  sketchybar --add event aerospace_workspace_change \
+    --add item spaces_watcher left \
+    --set spaces_watcher drawing=off \
+    updates=on \
+    script="$PLUGIN_DIR/aerospace.sh" \
+    --subscribe spaces_watcher aerospace_workspace_change front_app_switched \
+    space_windows_change system_woke
+fi
+
+################################################
+#  ISLAND 2: Media + system monitors            #
+################################################
+# When the display has a notch (NOTCH_SPACING=true), this island is placed in
 # the left section instead, so it doesn't get hidden behind it.
 
 CENTER_SECTION="center"
@@ -84,7 +140,6 @@ if [ "$NOTCH_SPACING" = "true" ]; then
 fi
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
-POPUP_SCRIPT="sketchybar -m --set \$NAME popup.drawing=toggle"
 
 sketchybar --add event spotify_change $SPOTIFY_EVENT \
   --add item spotify.name "$CENTER_SECTION" \
@@ -117,26 +172,25 @@ for ctrl in "${controls[@]}"; do
 done
 
 sketchybar --add item cpu "$CENTER_SECTION" \
-  --set cpu icon= \
+  --set cpu icon= \
   update_freq=5 \
   script="$PLUGIN_DIR/cpu.sh" \
   --subscribe cpu system_woke
 
 sketchybar --add item cpu_temp "$CENTER_SECTION" \
-  --set cpu_temp icon= \
+  --set cpu_temp icon= \
   update_freq=5 \
   script="$PLUGIN_DIR/cpu-temp.sh" \
   --subscribe cpu_temp system_woke
 
 sketchybar --add item memory "$CENTER_SECTION" \
-  --set memory icon= \
+  --set memory icon= \
   update_freq=5 \
   script="$PLUGIN_DIR/memory.sh" \
   --subscribe memory system_woke
---subscribe cpu system_woke
 
 sketchybar --add item gpu_temp "$CENTER_SECTION" \
-  --set gpu_temp icon= \
+  --set gpu_temp icon= \
   update_freq=5 \
   script="$PLUGIN_DIR/gpu-temp.sh" \
   --subscribe gpu_temp system_woke
@@ -147,10 +201,11 @@ sketchybar --add item disk "$CENTER_SECTION" \
   script="$PLUGIN_DIR/disk.sh" \
   --subscribe disk system_woke
 
-
-################################################
-#  END: Network, Volume, Clock, Session, Battery #
-################################################
+##################################################
+#  ISLAND 3: Network, volume, clock, session, battery #
+##################################################
+# Items are added right-to-left, so the visual order on screen is the
+# reverse of the order below: wifi, bluetooth, volume, clock, power, battery.
 
 sketchybar --add item battery right \
   --set battery icon=󰁹 \
@@ -161,7 +216,7 @@ sketchybar --add item battery right \
 sketchybar --add item power right \
   --set power icon=󰐥 \
   label.drawing=off \
-  click_script="$POWER_POPUP_SCRIPT" \
+  click_script="$POPUP_SCRIPT" \
   popup.align=center \
   popup.background.color="$COLOR_POPUP_BG" \
   popup.background.corner_radius="$POPUP_CORNER_RADIUS" \
@@ -185,8 +240,6 @@ sketchybar --add item time right \
   icon= \
   script="$PLUGIN_DIR/clock.sh"
 
-POWER_POPUP_SCRIPT="sketchybar -m --set \$NAME popup.drawing=toggle"
-
 sketchybar --add item volume right \
   --set volume icon=󰕾 \
   script="$PLUGIN_DIR/volume.sh" \
@@ -208,8 +261,34 @@ sketchybar --add item bluetooth right \
   click_script="open x-apple.systempreferences:com.apple.preferences.Bluetooth" \
   --subscribe bluetooth bluetooth_status
 
+################################
+#  Island backgrounds           #
+################################
+# Brackets draw the rounded background behind each group of items. They must
+# be added after their members exist.
+
+sketchybar --add bracket island.left "${ISLAND_LEFT_MEMBERS[@]}" \
+  --set island.left "${island[@]}"
+
+sketchybar --add bracket island.center \
+  spotify.name cpu cpu_temp memory gpu_temp disk \
+  --set island.center "${island[@]}"
+
+sketchybar --add bracket island.right \
+  bluetooth wifi volume time power battery \
+  --set island.right "${island[@]}"
+
+# Breathing room between the islands and the screen edges.
+sketchybar --set launcher padding_left="$ISLAND_PADDING" \
+  --set battery padding_right="$ISLAND_PADDING"
+
 #################
 #  Final launch #
 #################
+
+# Paint the initial workspace state (the event only fires on changes).
+if command -v aerospace >/dev/null 2>&1; then
+  "$PLUGIN_DIR/aerospace.sh"
+fi
 
 sketchybar --update

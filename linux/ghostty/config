@@ -34,7 +34,7 @@ keybind = ctrl+zero=reset_font_size
 
 # Material 3 UI elements
 unfocused-split-opacity = 0.9
-unfocused-split-fill = #44464f
+unfocused-split-fill = #202837
 
 # Tab configuration
 gtk-titlebar = false
@@ -48,4 +48,4 @@ keybind = shift+enter=text:\n
 gtk-single-instance = true
 
 # Dank color generation
-theme = muted-grey
+theme = cyberpunk

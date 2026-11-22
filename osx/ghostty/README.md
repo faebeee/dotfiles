@@ -6,7 +6,7 @@ Config for [Ghostty](https://ghostty.org), a terminal emulator.
 
 ## Highlights
 
-- `Blazer` theme with Hack Nerd Font
+- `cyberpunk` theme (Noctalia palette) with Hack Nerd Font
 - Transparent, blurred background (opacity `0.8`)
 - Hidden titlebar and window buttons
 - Dimmed unfocused splits

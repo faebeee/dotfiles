@@ -50,7 +50,7 @@ window-padding-y = 8
 # resize-overlay-duration = 4s 200ms
 
 
-theme = muted-grey
+theme = cyberpunk
 font-family = "Hack Nerd Font"
 background-opacity = 0.8
 background-blur = true
@@ -62,4 +62,4 @@ link-url=true
 
 
 unfocused-split-opacity = 0.9
-unfocused-split-fill = #44464f
+unfocused-split-fill = #202837

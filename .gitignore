@@ -1,2 +1,4 @@
 # Auto-generated backups from the Hyprland Lua config loader
 *.lua.bak.*
+.DS_store
+ 

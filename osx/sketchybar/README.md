@@ -25,7 +25,7 @@ Config for [SketchyBar](https://github.com/FelixKratz/SketchyBar), a customizabl
 - Each module is backed by a plugin script in `plugins/`
 - Colors, fonts and spacing live in `themes/` (`noctalia.sh` is the
   default, synced with the current Noctalia/Hyprland colorscheme;
-  `muted-grey.sh` and `mono.sh` are also available); swap the theme by
+  `muted-grey.sh`, `mono.sh` and `fuji-dark.sh` are also available); swap the theme by
   setting `THEME=<name>` before sketchybar loads, or add a new
   `themes/<name>.sh` file with the same variables to create a new look
 - Island look is controlled by the `COLOR_ISLAND_*` and `ISLAND_*` theme

@@ -1,0 +1,29 @@
+# Fuji Dark palette for Ghostty.
+# Matches the Fuji-Dark wallpaper (shared/wallpapers/wallpapers/Fuji-Dark.png):
+# deep dusk-violet background, sunset-coral accent and snow-lavender text.
+# Kept in sync with osx/sketchybar/themes/fuji-dark.sh.
+
+background = #1c1a22
+foreground = #c9c3d6
+cursor-color = #e8735a
+cursor-text = #1c1a22
+selection-background = #2e2b38
+selection-foreground = #e6e1ee
+palette-generate = true
+
+palette = 0=#24212c
+palette = 1=#e8735a
+palette = 2=#94b38a
+palette = 3=#e0a96d
+palette = 4=#7d8fc4
+palette = 5=#b48ac4
+palette = 6=#7fb2bf
+palette = 7=#c9c3d6
+palette = 8=#5a5468
+palette = 9=#f08a72
+palette = 10=#a9c79e
+palette = 11=#efc08a
+palette = 12=#98a8d8
+palette = 13=#c9a2d8
+palette = 14=#98c8d3
+palette = 15=#e6e1ee
